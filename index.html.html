@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<title>
+		</title>
+		<style>
+			body { font-family:'Times New Roman'; font-size:12pt }
+			p { margin:0pt }
+@media (max-width: 900px) { 
+img { 
+   max-width: 100%;
+   height: auto;
+}
+
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+}	
+
+
+		</style>
+	</head>
+	<body>
+			<p>
+				&lt;!DOCTYPE html&gt;
+			</p>
+			<p>
+				&lt;html lang="de"&gt;
+			</p>
+			<p>
+				&lt;head&gt;
+			</p>
+			<p>
+				&lt;meta charset="UTF-8"&gt;
+			</p>
+			<p>
+				&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+			</p>
+			<p>
+				&lt;title&gt;Tipp-Kick Liga&lt;/title&gt;
+			</p>
+			<p>
+				&lt;style&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; body {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; font-family: Arial, sans-serif;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; margin: 0;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; padding: 20px;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; h1 {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; text-align: center;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; margin-bottom: 20px;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; .card {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; background: white;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; border-radius: 10px;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; padding: 15px;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; margin-bottom: 20px;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; label {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; margin-right: 10px;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; input, select, button {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; padding: 8px;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; margin: 5px;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; border-radius: 5px;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; border: 1px solid #ccc;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; button {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; background: #4caf50;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; color: white;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; border: none;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; cursor: pointer;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; button:hover {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; background: #45a049;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; table {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; border-collapse: collapse;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; width: 100%;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; background: white;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; margin-bottom: 20px;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; th, td {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; border: 1px solid #ddd;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; padding: 10px;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; text-align: center;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; th {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; background: #f4f4f4;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; .medal {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; font-size: 1.2em;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; .results {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; background: white;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; border-radius: 10px;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; padding: 15px;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; .match-item {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; padding: 8px;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; border-bottom: 1px solid #ddd;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; border-radius: 5px;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; margin-bottom: 5px;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; color: white;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; font-weight: bold;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; .match-item:last-child {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; border-bottom: none;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; .match-win {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; background-color: #4caf50; /* grün */
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; .match-loss {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; background-color: #f44336; /* rot */
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; .match-draw {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; background-color: #9e9e9e; /* grau */
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&lt;/style&gt;
+			</p>
+			<p>
+				&lt;/head&gt;
+			</p>
+			<p>
+				&lt;body&gt;
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&lt;h1&gt;🏆 Tipp-Kick Liga&lt;/h1&gt;
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&lt;div class="card"&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;h3&gt;Neuen Spieler hinzufügen&lt;/h3&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;input type="text" id="newPlayerName" placeholder="Spielername"&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;button onclick="addPlayer()"&gt;➕ Spieler hinzufügen&lt;/button&gt;
+			</p>
+			<p>
+				&lt;/div&gt;
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&lt;div class="card"&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;h3&gt;Spiel eintragen&lt;/h3&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;label&gt;Spieltag:
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;input type="number" id="matchday" min="1" placeholder="z.B. 1"&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;/label&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;br&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;label&gt;Spieler 1:
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;select id="player1"&gt;&lt;/select&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;/label&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;input type="number" id="score1" placeholder="Tore" min="0"&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; vs.
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;label&gt;Spieler 2:
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;select id="player2"&gt;&lt;/select&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;/label&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;input type="number" id="score2" placeholder="Tore" min="0"&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;button onclick="addMatch()"&gt;💾 Spiel speichern&lt;/button&gt;
+			</p>
+			<p>
+				&lt;/div&gt;
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&lt;div class="card"&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;label&gt;Spieltag filtern:
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;select id="filterMatchday" onchange="updateTable()"&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;option value="all"&gt;Alle&lt;/option&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;/select&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;/label&gt;
+			</p>
+			<p>
+				&lt;/div&gt;
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&lt;table id="leagueTable"&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;thead&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;tr&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;th&gt;Platz&lt;/th&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;th&gt;Spieler&lt;/th&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;th&gt;Spiele&lt;/th&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;th&gt;Punkte&lt;/th&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;th&gt;Tordifferenz&lt;/th&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;th&gt;Punkte/Spiel&lt;/th&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;/tr&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;/thead&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;tbody&gt;&lt;/tbody&gt;
+			</p>
+			<p>
+				&lt;/table&gt;
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&lt;div id="matchResults" class="results" style="display:none;"&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;h3 id="resultsTitle"&gt;Ergebnisse Spieltag&lt;/h3&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;div id="resultsList"&gt;&lt;/div&gt;
+			</p>
+			<p>
+				&lt;/div&gt;
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&lt;div class="card"&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;button onclick="exportData()"&gt;⬇️ Daten exportieren&lt;/button&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;input type="file" id="importFile" onchange="importData(event)"&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;button onclick="loadFromStorage()"&gt;🔄 Zwischenstand laden&lt;/button&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; &lt;button onclick="clearData()"&gt;🗑️ Alle Daten löschen&lt;/button&gt;
+			</p>
+			<p>
+				&lt;/div&gt;
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&lt;script&gt;
+			</p>
+			<p>
+				let players = ["Mitschl", "Michl", "Manni", "Tom", "Sascha", "Dieni"];
+			</p>
+			<p>
+				let matches = [];
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				function updateDropdowns() {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const p1 = document.getElementById('player1');
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const p2 = document.getElementById('player2');
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; p1.innerHTML = '';
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; p2.innerHTML = '';
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; players.forEach(player =&gt; {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; let opt1 = document.createElement('option');
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; opt1.value = player; opt1.textContent = player; p1.appendChild(opt1);
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; let opt2 = document.createElement('option');
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; opt2.value = player; opt2.textContent = player; p2.appendChild(opt2);
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; });
+			</p>
+			<p>
+				}
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				function addPlayer() {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const name = document.getElementById('newPlayerName').value.trim();
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; if (!name) return alert("Bitte einen Spielernamen eingeben.");
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; if (players.includes(name)) return alert("Spieler existiert bereits.");
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; players.push(name);
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; updateDropdowns();
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; updateTable();
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; document.getElementById('newPlayerName').value = '';
+			</p>
+			<p>
+				}
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				function addMatch() {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const p1 = document.getElementById('player1').value;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const p2 = document.getElementById('player2').value;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const s1 = parseInt(document.getElementById('score1').value);
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const s2 = parseInt(document.getElementById('score2').value);
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const day = parseInt(document.getElementById('matchday').value);
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; if (!p1 || !p2 || isNaN(s1) || isNaN(s2) || p1 === p2 || isNaN(day)) {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; alert("Bitte gültige Daten eingeben.");
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; return;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; matches.push({ p1, s1, p2, s2, day });
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; localStorage.setItem('tippkickMatches', JSON.stringify(matches));
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; updateMatchdayFilter();
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; updateTable();
+			</p>
+			<p>
+				}
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				function updateMatchdayFilter() {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const filter = document.getElementById('filterMatchday');
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const days = [...new Set(matches.map(m =&gt; m.day))].sort((a,b) =&gt; a - b);
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; filter.innerHTML = '&lt;option value="all"&gt;Alle&lt;/option&gt;';
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; days.forEach(d =&gt; {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; let opt = document.createElement('option');
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; opt.value = d;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; opt.textContent = `Spieltag ${d}`;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; filter.appendChild(opt);
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; });
+			</p>
+			<p>
+				}
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				function updateTable() {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; let stats = {};
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; players.forEach(player =&gt; {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; stats[player] = { games: 0, points: 0, goalsFor: 0, goalsAgainst: 0 };
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; });
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const selectedDay = document.getElementById('filterMatchday').value;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const filteredMatches = selectedDay === "all" ? matches : matches.filter(m =&gt; m.day == selectedDay);
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; filteredMatches.forEach(m =&gt; {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; stats[m.p1].games++;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; stats[m.p2].games++;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; stats[m.p1].goalsFor += m.s1;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; stats[m.p1].goalsAgainst += m.s2;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; stats[m.p2].goalsFor += m.s2;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; stats[m.p2].goalsAgainst += m.s1;
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; if (m.s1 &gt; m.s2) {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; stats[m.p1].points += 3;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; } else if (m.s1 &lt; m.s2) {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; stats[m.p2].points += 3;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; } else {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; stats[m.p1].points += 1;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; stats[m.p2].points += 1;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; });
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; let ranking = players.map(player =&gt; {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; const st = stats[player];
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; return {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; name: player,
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; games: st.games,
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; points: st.points,
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; diff: st.goalsFor - st.goalsAgainst,
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; avg: st.games &gt; 0 ? (st.points / st.games).toFixed(2) : "0.00"
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; };
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; });
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; ranking.sort((a,b) =&gt; b.points - a.points || b.diff - a.diff);
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const medals = ["🥇", "🥈", "🥉"];
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const tbody = document.querySelector('#leagueTable tbody');
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; tbody.innerHTML = '';
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; ranking.forEach((r, i) =&gt; {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; let medal = i &lt; 3 ? `&lt;span class="medal"&gt;${medals[i]}&lt;/span&gt;` : i+1;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; tbody.innerHTML += `&lt;tr&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;td&gt;${medal}&lt;/td&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;td&gt;${r.name}&lt;/td&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;td&gt;${r.games}&lt;/td&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;td&gt;${r.points}&lt;/td&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;td&gt;${r.diff}&lt;/td&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;td&gt;${r.avg}&lt;/td&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;/tr&gt;`;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; });
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; // Ergebnisse für den Spieltag anzeigen
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const resultsDiv = document.getElementById('matchResults');
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const resultsList = document.getElementById('resultsList');
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const resultsTitle = document.getElementById('resultsTitle');
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; if (selectedDay !== "all") {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; resultsTitle.textContent = `Ergebnisse Spieltag ${selectedDay}`;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; resultsList.innerHTML = '';
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; filteredMatches.forEach(m =&gt; {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; let cssClass;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; if (m.s1 &gt; m.s2) cssClass = "match-win";
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; else if (m.s1 &lt; m.s2) cssClass = "match-loss";
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; else cssClass = "match-draw";
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; resultsList.innerHTML += `&lt;div class="match-item ${cssClass}"&gt;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; ${m.p1} ${m.s1} : ${m.s2} ${m.p2}
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; &lt;/div&gt;`;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; });
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; resultsDiv.style.display = 'block';
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; } else {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; resultsDiv.style.display = 'none';
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				}
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				function exportData() {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(matches));
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const dl = document.createElement('a');
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; dl.setAttribute('href', dataStr);
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; dl.setAttribute('download', 'tippkick_data.json');
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; dl.click();
+			</p>
+			<p>
+				}
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				function importData(event) {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const file = event.target.files[0];
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; if (!file) return;
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; const reader = new FileReader();
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; reader.onload = e =&gt; {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; try {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; matches = JSON.parse(e.target.result);
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; localStorage.setItem('tippkickMatches', JSON.stringify(matches));
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; updateMatchdayFilter();
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; updateTable();
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; } catch {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; alert("Ungültige Datei.");
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; };
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; reader.readAsText(file);
+			</p>
+			<p>
+				}
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				function loadFromStorage() {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; matches = JSON.parse(localStorage.getItem('tippkickMatches') || '[]');
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; updateMatchdayFilter();
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; updateTable();
+			</p>
+			<p>
+				}
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				function clearData() {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; if (confirm("Willst du wirklich alle Daten löschen?")) {
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; matches = [];
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; localStorage.removeItem('tippkickMatches');
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; updateMatchdayFilter();
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; updateTable();
+			</p>
+			<p>
+				&#xa0;&#xa0;&#xa0; }
+			</p>
+			<p>
+				}
+			</p>
+			<p>
+				&#xa0;
+			</p>
+			<p>
+				updateDropdowns();
+			</p>
+			<p>
+				loadFromStorage();
+			</p>
+			<p>
+				&lt;/script&gt;
+			</p>
+			<p>
+				&lt;/body&gt;
+			</p>
+			<p>
+				&lt;/html&gt;
+			</p>
+			<p>
+				&#xa0;
+			</p>
+	<p style="bottom: 10px; right: 10px; position: absolute;"><a href="https://wordtohtml.net" target="_blank" style="font-size:11px; color: #d0d0d0">Mit WordToHTML.net in HTML umgewandelt</a></p>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4581d6a58cf94e929fad52deda295622","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
