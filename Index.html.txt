@@ -1,838 +1,330 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tipp Kick Liga</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .tabs {
-            display: flex;
-            margin-bottom: 30px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            flex-wrap: wrap;
-        }
-        
-        .tab {
-            flex: 1;
-            min-width: 120px;
-            padding: 15px 10px;
-            background: #e9ecef;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: bold;
-            color: #495057;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        
-        .tab.active {
-            background: #007bff;
-            color: white;
-        }
-        
-        .tab:hover:not(.active) {
-            background: #dee2e6;
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .form-section {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-        }
-        
-        .form-row {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            align-items: end;
-        }
-        
-        .form-group {
-            flex: 1;
-            min-width: 150px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #495057;
-        }
-        
-        select, input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #dee2e6;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-        }
-        
-        select:focus, input:focus {
-            outline: none;
-            border-color: #007bff;
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
-        }
-        
-        button {
-            background: linear-gradient(45deg, #28a745, #20c997);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-        
-        button:active {
-            transform: translateY(0);
-        }
-        
-        .table-container {
-            overflow-x: auto;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-        
-        th, td {
-            padding: 12px 8px;
-            text-align: center;
-            border-bottom: 1px solid #dee2e6;
-            font-size: 14px;
-        }
-        
-        th {
-            background: linear-gradient(45deg, #007bff, #6610f2);
-            color: white;
-            font-weight: bold;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-        
-        tr:hover {
-            background-color: #e3f2fd;
-            transition: background-color 0.3s ease;
-        }
-        
-        .rank-1 {
-            background: linear-gradient(45deg, #ffd700, #ffed4e) !important;
-            color: #8b6914;
-            font-weight: bold;
-        }
-        
-        .rank-2 {
-            background: linear-gradient(45deg, #c0c0c0, #e0e0e0) !important;
-            color: #5a5a5a;
-            font-weight: bold;
-        }
-        
-        .rank-3 {
-            background: linear-gradient(45deg, #cd7f32, #deb887) !important;
-            color: #5d4e37;
-            font-weight: bold;
-        }
-        
-        .import-export {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-        
-        .file-input-wrapper {
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-        }
-        
-        .file-input-wrapper input[type=file] {
-            position: absolute;
-            left: -9999px;
-        }
-        
-        .file-input-label {
-            background: linear-gradient(45deg, #6c757d, #495057);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            cursor: pointer;
-            display: inline-block;
-            font-size: 16px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .file-input-label:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-        
-        .export-btn {
-            background: linear-gradient(45deg, #17a2b8, #138496);
-        }
-        
-        .delete-btn {
-            background: linear-gradient(45deg, #dc3545, #c82333);
-            padding: 8px 15px;
-            font-size: 14px;
-        }
-        
-        .matchday-btn {
-            background: linear-gradient(45deg, #fd7e14, #e55b13);
-            padding: 10px 20px;
-            margin-right: 10px;
-            margin-bottom: 10px;
-        }
-        
-        .current-matchday {
-            background: linear-gradient(45deg, #28a745, #20c997);
-            border: 3px solid #155724;
-        }
-        
-        .match-item {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #007bff;
-        }
-        
-        .matchday-item {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #fd7e14;
-        }
-        
-        .match-header {
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #495057;
-        }
-        
-        .matchday-header {
-            font-weight: bold;
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: #495057;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .match-actions {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 15px;
-            gap: 10px;
-        }
-        
-        .matches-in-matchday {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-        
-        .matchday-controls {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        
-        .section-title {
-            color: #495057;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            .form-row {
-                flex-direction: column;
-            }
-            
-            .tabs {
-                flex-direction: column;
-            }
-            
-            .tab {
-                min-width: auto;
-                font-size: 12px;
-                padding: 12px 8px;
-            }
-            
-            .import-export {
-                flex-direction: column;
-            }
-            
-            table {
-                font-size: 12px;
-            }
-            
-            th, td {
-                padding: 8px 4px;
-            }
-            
-            .matchday-controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
-        }
-        
-        .success-message {
-            background: #d4edda;
-            color: #155724;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .error-message {
-            background: #f8d7da;
-            color: #721c24;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border: 1px solid #f5c6cb;
-        }
-
-        .new-matchday-form {
-            background: #e8f4fd;
-            border: 2px dashed #007bff;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tipp-Kick Liga</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+        margin: 0;
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .card {
+        background: white;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    label {
+        margin-right: 10px;
+    }
+    input, select, button {
+        padding: 8px;
+        margin: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button {
+        background: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #45a049;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+    th {
+        background: #f4f4f4;
+    }
+    .medal {
+        font-size: 1.2em;
+    }
+    .results {
+        background: white;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .match-item {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        color: white;
+        font-weight: bold;
+    }
+    .match-item:last-child {
+        border-bottom: none;
+    }
+    .match-win {
+        background-color: #4caf50; /* grün */
+    }
+    .match-loss {
+        background-color: #f44336; /* rot */
+    }
+    .match-draw {
+        background-color: #9e9e9e; /* grau */
+    }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>⚽ Tipp Kick Liga ⚽</h1>
-        
-        <div class="tabs">
-            <button class="tab active" onclick="showTab('matchday')">Spieltag</button>
-            <button class="tab" onclick="showTab('table')">Gesamttabelle</button>
-            <button class="tab" onclick="showTab('matchday-tables')">Spieltagstabellen</button>
-            <button class="tab" onclick="showTab('history')">Spielhistorie</button>
-            <button class="tab" onclick="showTab('matchday-history')">Spieltagshistorie</button>
-            <button class="tab" onclick="showTab('data')">Daten verwalten</button>
-        </div>
-        
-        <div id="matchday" class="tab-content active">
-            <div class="matchday-controls">
-                <div class="form-group">
-                    <label for="currentMatchdaySelect">Aktueller Spieltag:</label>
-                    <select id="currentMatchdaySelect" onchange="selectMatchday(this.value)">
-                        <option value="">Neuen Spieltag erstellen</option>
-                    </select>
-                </div>
-                <div id="currentMatchdayInfo" style="display: none;">
-                    <strong>Spieltag:</strong> <span id="currentMatchdayName"></span>
-                    <button class="delete-btn" onclick="finishMatchday()" style="margin-left: 15px;">Spieltag beenden</button>
-                </div>
-            </div>
-            
-            <div id="newMatchdayForm" class="new-matchday-form">
-                <h3>Neuen Spieltag erstellen</h3>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="matchdayName">Spieltag Name:</label>
-                        <input type="text" id="matchdayName" placeholder="z.B. Spieltag 1, Turnier XY, ...">
-                    </div>
-                    <div class="form-group">
-                        <button onclick="createMatchday()">Spieltag erstellen</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="matchForm" style="display: none;" class="form-section">
-                <h3>Spiel hinzufügen</h3>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="player1">Spieler 1:</label>
-                        <select id="player1">
-                            <option value="Mitschl">Mitschl</option>
-                            <option value="Michl">Michl</option>
-                            <option value="Manni">Manni</option>
-                            <option value="Tom">Tom</option>
-                            <option value="Sascha">Sascha</option>
-                            <option value="Dieni">Dieni</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="goals1">Tore Spieler 1:</label>
-                        <input type="number" id="goals1" min="0" value="0">
-                    </div>
-                    <div class="form-group">
-                        <label for="goals2">Tore Spieler 2:</label>
-                        <input type="number" id="goals2" min="0" value="0">
-                    </div>
-                    <div class="form-group">
-                        <label for="player2">Spieler 2:</label>
-                        <select id="player2">
-                            <option value="Mitschl">Mitschl</option>
-                            <option value="Michl" selected>Michl</option>
-                            <option value="Manni">Manni</option>
-                            <option value="Tom">Tom</option>
-                            <option value="Sascha">Sascha</option>
-                            <option value="Dieni">Dieni</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <button onclick="addMatch()">Spiel hinzufügen</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="currentMatchdayMatches"></div>
-        </div>
-        
-        <div id="table" class="tab-content">
-            <h2 class="section-title">Gesamttabelle</h2>
-            <div class="table-container">
-                <table id="leagueTable">
-                    <thead>
-                        <tr>
-                            <th>Platz</th>
-                            <th>Spieler</th>
-                            <th>Spiele</th>
-                            <th>Siege</th>
-                            <th>Unent.</th>
-                            <th>Niederl.</th>
-                            <th>Tore</th>
-                            <th>Gegent.</th>
-                            <th>Diff</th>
-                            <th>Punkte</th>
-                            <th>⌀ Punkte</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-        </div>
-        
-        <div id="matchday-tables" class="tab-content">
-            <h2 class="section-title">Spieltagstabellen</h2>
-            <div id="matchdayTablesContainer"></div>
-        </div>
-        
-        <div id="history" class="tab-content">
-            <h2 class="section-title">Alle Spiele</h2>
-            <div id="matchHistory"></div>
-        </div>
-        
-        <div id="matchday-history" class="tab-content">
-            <h2 class="section-title">Spieltagshistorie</h2>
-            <div id="matchdayHistoryContainer"></div>
-        </div>
-        
-        <div id="data" class="tab-content">
-            <div class="form-section">
-                <h2>Daten verwalten</h2>
-                <div class="import-export">
-                    <button class="export-btn" onclick="exportData()">Daten exportieren (JSON)</button>
-                    <div class="file-input-wrapper">
-                        <input type="file" id="importFile" accept=".json" onchange="importData(event)">
-                        <label for="importFile" class="file-input-label">Daten importieren (JSON)</label>
-                    </div>
-                    <button class="delete-btn" onclick="clearAllData()">Alle Daten löschen</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <script>
-        const players = ['Mitschl', 'Michl', 'Manni', 'Tom', 'Sascha', 'Dieni'];
-        let matches = [];
-        let matchdays = [];
-        let currentMatchday = null;
-        let messageTimeout;
+<h1>🏆 Tipp-Kick Liga</h1>
 
-        // Daten beim Laden der Seite laden
-        window.addEventListener('load', function() {
-            loadData();
-            updateMatchdaySelect();
-            updateTable();
-            updateHistory();
-            updateMatchdayHistory();
-            updateMatchdayTables();
+<div class="card">
+    <h3>Neuen Spieler hinzufügen</h3>
+    <input type="text" id="newPlayerName" placeholder="Spielername">
+    <button onclick="addPlayer()">➕ Spieler hinzufügen</button>
+</div>
+
+<div class="card">
+    <h3>Spiel eintragen</h3>
+    <label>Spieltag:
+        <input type="number" id="matchday" min="1" placeholder="z.B. 1">
+    </label>
+    <br>
+    <label>Spieler 1:
+        <select id="player1"></select>
+    </label>
+    <input type="number" id="score1" placeholder="Tore" min="0">
+    vs.
+    <label>Spieler 2:
+        <select id="player2"></select>
+    </label>
+    <input type="number" id="score2" placeholder="Tore" min="0">
+    <button onclick="addMatch()">💾 Spiel speichern</button>
+</div>
+
+<div class="card">
+    <label>Spieltag filtern:
+        <select id="filterMatchday" onchange="updateTable()">
+            <option value="all">Alle</option>
+        </select>
+    </label>
+</div>
+
+<table id="leagueTable">
+    <thead>
+        <tr>
+            <th>Platz</th>
+            <th>Spieler</th>
+            <th>Spiele</th>
+            <th>Punkte</th>
+            <th>Tordifferenz</th>
+            <th>Punkte/Spiel</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<div id="matchResults" class="results" style="display:none;">
+    <h3 id="resultsTitle">Ergebnisse Spieltag</h3>
+    <div id="resultsList"></div>
+</div>
+
+<div class="card">
+    <button onclick="exportData()">⬇️ Daten exportieren</button>
+    <input type="file" id="importFile" onchange="importData(event)">
+    <button onclick="loadFromStorage()">🔄 Zwischenstand laden</button>
+    <button onclick="clearData()">🗑️ Alle Daten löschen</button>
+</div>
+
+<script>
+let players = ["Mitschl", "Michl", "Manni", "Tom", "Sascha", "Dieni"];
+let matches = [];
+
+function updateDropdowns() {
+    const p1 = document.getElementById('player1');
+    const p2 = document.getElementById('player2');
+    p1.innerHTML = '';
+    p2.innerHTML = '';
+    players.forEach(player => {
+        let opt1 = document.createElement('option');
+        opt1.value = player; opt1.textContent = player; p1.appendChild(opt1);
+        let opt2 = document.createElement('option');
+        opt2.value = player; opt2.textContent = player; p2.appendChild(opt2);
+    });
+}
+
+function addPlayer() {
+    const name = document.getElementById('newPlayerName').value.trim();
+    if (!name) return alert("Bitte einen Spielernamen eingeben.");
+    if (players.includes(name)) return alert("Spieler existiert bereits.");
+    players.push(name);
+    updateDropdowns();
+    updateTable();
+    document.getElementById('newPlayerName').value = '';
+}
+
+function addMatch() {
+    const p1 = document.getElementById('player1').value;
+    const p2 = document.getElementById('player2').value;
+    const s1 = parseInt(document.getElementById('score1').value);
+    const s2 = parseInt(document.getElementById('score2').value);
+    const day = parseInt(document.getElementById('matchday').value);
+
+    if (!p1 || !p2 || isNaN(s1) || isNaN(s2) || p1 === p2 || isNaN(day)) {
+        alert("Bitte gültige Daten eingeben.");
+        return;
+    }
+
+    matches.push({ p1, s1, p2, s2, day });
+    localStorage.setItem('tippkickMatches', JSON.stringify(matches));
+    updateMatchdayFilter();
+    updateTable();
+}
+
+function updateMatchdayFilter() {
+    const filter = document.getElementById('filterMatchday');
+    const days = [...new Set(matches.map(m => m.day))].sort((a,b) => a - b);
+    filter.innerHTML = '<option value="all">Alle</option>';
+    days.forEach(d => {
+        let opt = document.createElement('option');
+        opt.value = d;
+        opt.textContent = `Spieltag ${d}`;
+        filter.appendChild(opt);
+    });
+}
+
+function updateTable() {
+    let stats = {};
+    players.forEach(player => {
+        stats[player] = { games: 0, points: 0, goalsFor: 0, goalsAgainst: 0 };
+    });
+
+    const selectedDay = document.getElementById('filterMatchday').value;
+    const filteredMatches = selectedDay === "all" ? matches : matches.filter(m => m.day == selectedDay);
+
+    filteredMatches.forEach(m => {
+        stats[m.p1].games++;
+        stats[m.p2].games++;
+        stats[m.p1].goalsFor += m.s1;
+        stats[m.p1].goalsAgainst += m.s2;
+        stats[m.p2].goalsFor += m.s2;
+        stats[m.p2].goalsAgainst += m.s1;
+
+        if (m.s1 > m.s2) {
+            stats[m.p1].points += 3;
+        } else if (m.s1 < m.s2) {
+            stats[m.p2].points += 3;
+        } else {
+            stats[m.p1].points += 1;
+            stats[m.p2].points += 1;
+        }
+    });
+
+    let ranking = players.map(player => {
+        const st = stats[player];
+        return {
+            name: player,
+            games: st.games,
+            points: st.points,
+            diff: st.goalsFor - st.goalsAgainst,
+            avg: st.games > 0 ? (st.points / st.games).toFixed(2) : "0.00"
+        };
+    });
+
+    ranking.sort((a,b) => b.points - a.points || b.diff - a.diff);
+
+    const medals = ["🥇", "🥈", "🥉"];
+    const tbody = document.querySelector('#leagueTable tbody');
+    tbody.innerHTML = '';
+    ranking.forEach((r, i) => {
+        let medal = i < 3 ? `<span class="medal">${medals[i]}</span>` : i+1;
+        tbody.innerHTML += `<tr>
+            <td>${medal}</td>
+            <td>${r.name}</td>
+            <td>${r.games}</td>
+            <td>${r.points}</td>
+            <td>${r.diff}</td>
+            <td>${r.avg}</td>
+        </tr>`;
+    });
+
+    // Ergebnisse für den Spieltag anzeigen
+    const resultsDiv = document.getElementById('matchResults');
+    const resultsList = document.getElementById('resultsList');
+    const resultsTitle = document.getElementById('resultsTitle');
+    if (selectedDay !== "all") {
+        resultsTitle.textContent = `Ergebnisse Spieltag ${selectedDay}`;
+        resultsList.innerHTML = '';
+        filteredMatches.forEach(m => {
+            let cssClass;
+            if (m.s1 > m.s2) cssClass = "match-win";
+            else if (m.s1 < m.s2) cssClass = "match-loss";
+            else cssClass = "match-draw";
+
+            resultsList.innerHTML += `<div class="match-item ${cssClass}">
+                ${m.p1} ${m.s1} : ${m.s2} ${m.p2}
+            </div>`;
         });
+        resultsDiv.style.display = 'block';
+    } else {
+        resultsDiv.style.display = 'none';
+    }
+}
 
-        function showTab(tabName) {
-            // Alle Tabs deaktivieren
-            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-            
-            // Aktiven Tab aktivieren
-            event.target.classList.add('active');
-            document.getElementById(tabName).classList.add('active');
-            
-            // Inhalte aktualisieren
-            if (tabName === 'table') {
-                updateTable();
-            } else if (tabName === 'history') {
-                updateHistory();
-            } else if (tabName === 'matchday-history') {
-                updateMatchdayHistory();
-            } else if (tabName === 'matchday-tables') {
-                updateMatchdayTables();
-            } else if (tabName === 'matchday') {
-                updateCurrentMatchdayView();
-            }
-        }
+function exportData() {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(matches));
+    const dl = document.createElement('a');
+    dl.setAttribute('href', dataStr);
+    dl.setAttribute('download', 'tippkick_data.json');
+    dl.click();
+}
 
-        function createMatchday() {
-            const name = document.getElementById('matchdayName').value.trim();
-            if (!name) {
-                showMessage('Bitte einen Namen für den Spieltag eingeben!', 'error');
-                return;
-            }
-            
-            // Prüfen ob bereits ein aktiver Spieltag existiert
-            if (currentMatchday) {
-                if (!confirm('Es ist bereits ein Spieltag aktiv. Möchten Sie diesen beenden und einen neuen starten?')) {
-                    return;
-                }
-                finishMatchday();
-            }
-            
-            currentMatchday = {
-                id: Date.now(),
-                name: name,
-                matches: [],
-                date: new Date().toLocaleDateString('de-DE'),
-                active: true
-            };
-            
-            document.getElementById('matchdayName').value = '';
-            updateCurrentMatchdayView();
-            saveData();
-            showMessage(`Spieltag "${name}" wurde erstellt!`, 'success');
-        }
-
-        function selectMatchday(matchdayId) {
-            if (!matchdayId) {
-                // Neuen Spieltag erstellen
-                currentMatchday = null;
-                updateCurrentMatchdayView();
-                return;
-            }
-            
-            // Prüfen ob bereits ein aktiver Spieltag existiert
-            if (currentMatchday) {
-                if (!confirm('Es ist bereits ein Spieltag aktiv. Möchten Sie diesen beenden?')) {
-                    updateMatchdaySelect();
-                    return;
-                }
-                finishMatchday();
-            }
-            
-            // Bestehenden Spieltag reaktivieren
-            const matchday = matchdays.find(md => md.id == matchdayId);
-            if (matchday) {
-                currentMatchday = {...matchday, active: true};
-                updateCurrentMatchdayView();
-                saveData();
-                showMessage(`Spieltag "${matchday.name}" wurde reaktiviert!`, 'success');
-            }
-        }
-
-        function finishMatchday() {
-            if (!currentMatchday) return;
-            
-            if (currentMatchday.matches.length === 0) {
-                if (!confirm('Dieser Spieltag hat noch keine Spiele. Trotzdem beenden?')) {
-                    return;
-                }
-            }
-            
-            // Spieltag zu Historie hinzufügen oder aktualisieren
-            const existingIndex = matchdays.findIndex(md => md.id === currentMatchday.id);
-            const finishedMatchday = {
-                ...currentMatchday,
-                active: false,
-                finishedDate: new Date().toLocaleDateString('de-DE')
-            };
-            
-            if (existingIndex >= 0) {
-                matchdays[existingIndex] = finishedMatchday;
-            } else {
-                matchdays.push(finishedMatchday);
-            }
-            
-            // Spiele zur Gesamtliste hinzufügen
-            matches.push(...currentMatchday.matches);
-            
-            currentMatchday = null;
-            updateCurrentMatchdayView();
-            updateMatchdaySelect();
+function importData(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+        try {
+            matches = JSON.parse(e.target.result);
+            localStorage.setItem('tippkickMatches', JSON.stringify(matches));
+            updateMatchdayFilter();
             updateTable();
-            updateHistory();
-            updateMatchdayHistory();
-            updateMatchdayTables();
-            saveData();
-            showMessage('Spieltag wurde beendet und zur Historie hinzugefügt!', 'success');
+        } catch {
+            alert("Ungültige Datei.");
         }
+    };
+    reader.readAsText(file);
+}
 
-        function updateCurrentMatchdayView() {
-            const newForm = document.getElementById('newMatchdayForm');
-            const matchForm = document.getElementById('matchForm');
-            const currentInfo = document.getElementById('currentMatchdayInfo');
-            const matchesContainer = document.getElementById('currentMatchdayMatches');
-            
-            if (currentMatchday) {
-                newForm.style.display = 'none';
-                matchForm.style.display = 'block';
-                currentInfo.style.display = 'block';
-                document.getElementById('currentMatchdayName').textContent = currentMatchday.name;
-                
-                // Aktuelle Spiele des Spieltags anzeigen
-                if (currentMatchday.matches.length > 0) {
-                    matchesContainer.innerHTML = '<h3>Spiele des aktuellen Spieltags:</h3>' + 
-                        currentMatchday.matches.map(match => `
-                            <div class="match-item">
-                                <div class="match-header">
-                                    ${match.player1} ${match.goals1}:${match.goals2} ${match.player2}
-                                </div>
-                                <div class="match-actions">
-                                    <button class="delete-btn" onclick="deleteMatchFromCurrent(${match.id})">Löschen</button>
-                                </div>
-                            </div>
-                        `).join('');
-                } else {
-                    matchesContainer.innerHTML = '<p style="text-align: center; color: #6c757d; font-style: italic;">Noch keine Spiele in diesem Spieltag.</p>';
-                }
-            } else {
-                newForm.style.display = 'block';
-                matchForm.style.display = 'none';
-                currentInfo.style.display = 'none';
-                matchesContainer.innerHTML = '';
-            }
-            
-            updateMatchdaySelect();
-        }
+function loadFromStorage() {
+    matches = JSON.parse(localStorage.getItem('tippkickMatches') || '[]');
+    updateMatchdayFilter();
+    updateTable();
+}
 
-        function updateMatchdaySelect() {
-            const select = document.getElementById('currentMatchdaySelect');
-            select.innerHTML = '<option value="">Neuen Spieltag erstellen</option>';
-            
-            matchdays.forEach(matchday => {
-                const option = document.createElement('option');
-                option.value = matchday.id;
-                option.textContent = `${matchday.name} (${matchday.date})`;
-                select.appendChild(option);
-            });
-            
-            if (currentMatchday) {
-                select.value = currentMatchday.id || '';
-            }
-        }
+function clearData() {
+    if (confirm("Willst du wirklich alle Daten löschen?")) {
+        matches = [];
+        localStorage.removeItem('tippkickMatches');
+        updateMatchdayFilter();
+        updateTable();
+    }
+}
 
-        function addMatch() {
-            if (!currentMatchday) {
-                showMessage('Bitte erst einen Spieltag erstellen!', 'error');
-                return;
-            }
-            
-            const player1 = document.getElementById('player1').value;
-            const player2 = document.getElementById('player2').value;
-            const goals1 = parseInt(document.getElementById('goals1').value) || 0;
-            const goals2 = parseInt(document.getElementById('goals2').value) || 0;
-            
-            if (player1 === player2) {
-                showMessage('Fehler: Ein Spieler kann nicht gegen sich selbst spielen!', 'error');
-                return;
-            }
-            
-            const match = {
-                id: Date.now(),
-                player1: player1,
-                player2: player2,
-                goals1: goals1,
-                goals2: goals2,
-                matchdayId: currentMatchday.id,
-                matchdayName: currentMatchday.name
-            };
-            
-            currentMatchday.matches.push(match);
-            updateCurrentMatchdayView();
-            saveData();
-            
-            // Formular zurücksetzen
-            document.getElementById('goals1').value = 0;
-            document.getElementById('goals2').value = 0;
-            
-            showMessage('Spiel wurde zum Spieltag hinzugefügt!', 'success');
-        }
-
-        function deleteMatchFromCurrent(matchId) {
-            if (!currentMatchday) return;
-            
-            if (confirm('Möchten Sie dieses Spiel wirklich löschen?')) {
-                currentMatchday.matches = currentMatchday.matches.filter(match => match.id !== matchId);
-                updateCurrentMatchdayView();
-                saveData();
-                showMessage('Spiel wurde gelöscht.', 'success');
-            }
-        }
-
-        function updateTable() {
-            const stats = calculateStats(matches);
-            const tbody = document.querySelector('#leagueTable tbody');
-            tbody.innerHTML = '';
-            
-            // Nach durchschnittlichen Punkten sortieren, dann nach Tordifferenz
-            const sortedStats = Object.entries(stats).sort((a, b) => {
-                if (b[1].avgPoints !== a[1].avgPoints) {
-                    return b[1].avgPoints - a[1].avgPoints;
-                }
-                return b[1].goalDiff - a[1].goalDiff;
-            });
-            
-            sortedStats.forEach((playerStat, index) => {
-                const [player, stat] = playerStat;
-                const row = tbody.insertRow();
-                
-                // Rang-Klassen hinzufügen
-                if (index === 0) row.classList.add('rank-1');
-                else if (index === 1) row.classList.add('rank-2');
-                else if (index === 2) row.classList.add('rank-3');
-                
-                row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td><strong>${player}</strong></td>
-                    <td>${stat.games}</td>
-                    <td>${stat.wins}</td>
-                    <td>${stat.draws}</td>
-                    <td>${stat.losses}</td>
-                    <td>${stat.goalsFor}</td>
-                    <td>${stat.goalsAgainst}</td>
-                    <td>${stat.goalDiff > 0 ? '+' : ''}${stat.goalDiff}</td>
-                    <td>${stat.points}</td>
-                    <td><strong>${stat.avgPoints.toFixed(2)}</strong></td>
-                `;
-            });
-        }
-
-        function updateMatchdayTables() {
-            const container = document.getElementById('matchdayTablesContainer');
-            
-            if (matchdays.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: #6c757d; font-style: italic;">Noch keine Spieltage beendet.</p>';
-                return;
-            }
-            
-            container.innerHTML = matchdays.map(matchday => {
-                const stats = calculateStats(matchday.matches);
-                const sortedStats = Object.entries(stats)
-                    .filter(([player, stat]) => stat.games > 0)
-                    .sort((a, b) => {
-                        if (b[1].avgPoints !== a[1].avgPoints) {
-                            return b[1].avgPoints - a[1].avgPoints;
-                        }
-                        return b[1].goalDiff - a[1].goalDiff;
-                    });
-                
-                return `
-                    <div class="table-container">
-                        <h3 style="margin-bottom: 15px; color: #495057;">${matchday.name} (${matchday.date})</h3>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Platz</th>
-                                    <th>Spieler</th>
-                                    <th>Spiele</th>
-                                    <th>S</th>
-                                    <th>U</th>
-                                    <th>N</th>
-                                    <th>Tore</th>
-                                    <th>GT</th>
-                                    <th>Diff</th>
-                                    <th>Punkte</th>
-                                    <th>⌀</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${sortedStats.map(([player, stat], index) => `
-                                    <tr class="${index === 0 ? 'rank-1' : index === 1 ?
+updateDropdowns();
+loadFromStorage();
+</script>
+</body>
+</html>
